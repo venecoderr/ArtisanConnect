@@ -70,6 +70,10 @@ const resolvers = {
       if (!updatedUser) throw new Error('User not found');
       return updatedUser;
     },
+        addProduct: async (_, { name, description, price, artisanId }) => {
+      const newProduct = new Product({ name, description, price, artisan: artisanId });
+      return await newProduct.save();
+    },
     updateProduct: async (_, { id, name, description, price }) => {
       const updates = { name, description, price };
       const updatedProduct = await Product.findByIdAndUpdate(id, updates, { new: true });
