@@ -34,8 +34,8 @@ export const DELETE_USER = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-  mutation AddProduct($name: String!, $description: String!, $price: Float!, $artisanId: ID!) {
-    addProduct(name: $name, description: $description, price: $price, artisanId: $artisanId) {
+  mutation AddProduct($name: String!, $description: String!, $price: Float!, $artisanId: ID!, $imageURL: String!) {
+    addProduct(name: $name, description: $description, price: $price, artisanId: $artisanId, imageURL: $imageURL) {
       id
       name
       description
@@ -46,17 +46,19 @@ export const ADD_PRODUCT = gql`
         email
         role
       }
+      imageURL
     }
   }
 `;
 
 export const UPDATE_PRODUCT = gql`
-  mutation UpdateProduct($id: ID!, $name: String!, $description: String!, $price: Float!) {
-    updateProduct(id: $id, name: $name, description: $description, price: $price) {
+  mutation UpdateProduct($id: ID!, $name: String!, $description: String!, $price: Float!, $imageURL: String) {
+    updateProduct(id: $id, name: $name, description: $description, price: $price, imageURL: $imageURL) {
       id
       name
       description
       price
+      imageURL
     }
   }
 `;
