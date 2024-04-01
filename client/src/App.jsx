@@ -1,14 +1,14 @@
 import { useState } from 'react'
+import { Outlet } from "react-router-dom";
+import Nav from "./components/Nav";
 import LoginForm from './components/ui/logInForm'
 import './App.css'
 
-function App() {
-
-  return (
+export default function App(){
+  return(
     <>
-      <LoginForm/>
+      <Nav/>
+      <Outlet/>
     </>
   )
 }
-
-export default App
