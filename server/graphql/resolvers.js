@@ -31,6 +31,8 @@ const resolvers = {
       if (product.artisan) product.artisan.id = product.artisan._id.toString();
       return product;
     },
+  },
+  Mutation: {
     login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
       if (!user) {
@@ -42,8 +44,6 @@ const resolvers = {
       }
       return { userId: user._id.toString(), token: createToken(user, process.env.JWT_SECRET, '1h'), tokenExpiration: 1 };
     },
-  },
-  Mutation: {
     addUser: async (_, { username, email, password, role }) => {
       const existingUser = await User.findOne({ email });
       if (existingUser) {

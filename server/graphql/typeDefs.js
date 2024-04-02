@@ -38,17 +38,17 @@ type Query {
   user(id: ID!): User
   products: [Product]
   product(id: ID!): Product
-  login(email: String!, password: String!): AuthData
 }
 
 # Mutation type for data modification
 type Mutation {
   addUser(username: String!, email: String!, password: String!, role: Role!): User
-  addProduct(name: String!, description: String!, price: Float!, artisanId: ID!, imageURL: String!): Product # Updated mutation to include imageURL
+  addProduct(name: String!, description: String!, price: Float!, artisanId: ID!, imageURL: String!): Product
   updateUser(id: ID!, username: String, email: String, role: Role): User
-  updateProduct(id: ID!, name: String, description: String, price: Float, imageURL: String): Product # Updated mutation to optionally update imageURL
+  updateProduct(id: ID!, name: String, description: String, price: Float, imageURL: String): Product
   deleteUser(id: ID!): User
   deleteProduct(id: ID!): Product
+  login(email: String!, password: String!): AuthData # Moved login here
 }
 `;
 
