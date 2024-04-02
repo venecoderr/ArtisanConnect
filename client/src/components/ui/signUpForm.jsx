@@ -1,7 +1,10 @@
 import { useState } from "react";
 import RequiredField from "./requiredField.jsx";
+import { useQueriesContext } from "../../utils/QueriesContext.jsx";
 
-export default function SignUpForm({ addUser, classNames, validateEmail }) {
+export default function SignUpForm() {
+
+    const { mutations, validateEmail, classNames } = useQueriesContext();
 
     const [form, setForm] = useState({
         username: '',
@@ -45,7 +48,7 @@ export default function SignUpForm({ addUser, classNames, validateEmail }) {
 
         try {
             // Call addUser mutation function with the form data
-            const newUser = await addUser({
+            const newUser = await mutations.addUser({
                 variables: {
                     username: form.username,
                     email: form.email.address,
