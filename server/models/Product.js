@@ -18,7 +18,11 @@ const productSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  // coming fields for product images, categories, tags, etc.
+  imageURL: {
+    type: String,
+    required: [true, 'Product image URL is required']
+  },
+  
 });
 
 module.exports = mongoose.model('Product', productSchema);
