@@ -1,3 +1,84 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#main{
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+.bg-cover{
+  max-height: 100vh;
+  max-width: 100vw;
+  position: absolute;
+  fill: url('/assets/cover-2.png');
+  opacity: 0.3;
+}
+
+#curve{
+  fill: transparent;
+}
+
+#main-text{
+  margin-left: 50%;
+  padding-top: 30%;
+}
+
+.text{
+  font-size: 9vw;
+  font-family: "Source Serif 4", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  color: rgb(56, 14, 14);
+  line-height: 1;
+}
+
+.connect{
+  font-size: 10vw;
+  padding-top: 0%;
+  margin-left: 20%;
+  color: rgb(18, 42, 18);
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: bold;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 60%;
+}
+
+button:hover{
+  background-color: rgb(18, 42, 18);
+  color: white;
+  border: 1px solid rgb(18, 42, 18);
+}
+
+@media (min-width: 992px){
+  #main-text{
+    margin-left: 40%;
+    padding-top: 10%;
+  }
+
+  #curve{
+    width: 100%;
+  }
+
+  .img-container{
+    margin-right: 45%;
+  }
+
+  .bg-cover{
+    max-width: 100vw;
+    max-height: 100vh;
+    margin-left: 40%;
+  }
+
+  button{
+    padding: 6%;
+  }
+}
+
