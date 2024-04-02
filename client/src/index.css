@@ -52,9 +52,21 @@
 }
 
 button:hover{
-  background-color: rgb(18, 42, 18);
+  background-color: rgb(56, 14, 14);
   color: white;
-  border: 1px solid rgb(18, 42, 18);
+  border: 1px solid rgb(56, 14, 14);
+}
+
+.img-products{
+  width: 100vw;
+  max-height: 70vh;
+  position: absolute;
+}
+
+.main-wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 @media (min-width: 992px){
