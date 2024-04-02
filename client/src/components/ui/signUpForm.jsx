@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { classNames, validateEmail } from "../utils/utils";
-import RequiredField from "../components/UI/requiredField";
+import { classNames } from "../../utils/utils.js";
+import RequiredField from "./requiredField.jsx";
 
-export default function Form(){
+export default function SignUpForm(){
     //States
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
