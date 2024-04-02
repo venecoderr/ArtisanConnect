@@ -58,12 +58,3 @@ export const GET_PRODUCT = gql`
   }
 `;
 
-export const LOGIN_USER = gql`
-  mutation LoginUser($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      userId
-      token
-      tokenExpiration
-    }
-  }
-`;
