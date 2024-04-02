@@ -19,7 +19,7 @@ export default function App(){
     <>
       <ApolloProvider client={client}>
         <Nav/>
-        <Outlet/>
+        {/* <Outlet/> */}
         <FormProvider>
           <Form/>
         </FormProvider>
