@@ -15,6 +15,14 @@
   opacity: 0.3;
 }
 
+.about-bg-cover{
+  max-height: 100vh;
+  max-width: 100vw;
+  position: absolute;
+  fill: url('/assets/cover-2.png');
+  opacity: 0.3;
+}
+
 #curve{
   fill: transparent;
 }
@@ -51,6 +59,26 @@
   margin-left: 60%;
 }
 
+#about{
+  font-size: 3vh;
+  text-align: right;
+  font-family: "Bebas Neue", sans-serif;
+  line-height: 1.9;
+  margin-right: 50%;
+  color: rgb(18, 42, 18);
+}
+
+.about-title{
+  font-size: 6vw;
+  font-family: "Source Serif 4", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  color: rgb(56, 14, 14);
+  line-height: 1;
+  padding-bottom: 30px;
+}
+
 button:hover{
   background-color: rgb(18, 42, 18);
   color: white;
@@ -80,5 +108,27 @@ button:hover{
   button{
     padding: 6%;
   }
+
+  .about-bg-cover{
+    max-width: 100vw;
+    max-height: 100vh;
+    margin-left: 40%;
+  }
+
+ 
 }
 
+
+@media only screen and (max-width: 768px) {
+  #about {
+    font-size: 2.5vh; 
+    margin-right: 0; 
+  }
+}
+
+/* Media Query for larger screens */
+@media only screen and (min-width: 1200px) {
+  #about {
+    font-size: 3.5vh; 
+  }
+}
