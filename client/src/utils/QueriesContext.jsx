@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { ADD_USER, UPDATE_USER, DELETE_USER, ADD_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT } from './mutations';
+import { ADD_USER, UPDATE_USER, DELETE_USER, ADD_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT, LOGIN_USER } from './mutations';
 import { GET_USERS, GET_USER, GET_PRODUCTS, GET_PRODUCT } from './queries'
 
 const QueriesContext = createContext();
@@ -15,6 +15,7 @@ export const QueriesProvider = ({ children }) => {
   const [addProduct, { error: addProductError }] = useMutation(ADD_PRODUCT);
   const [updateProduct, { error: updateProductError }] = useMutation(UPDATE_PRODUCT);
   const [deleteProduct, { error: deleteProductError }] = useMutation(DELETE_PRODUCT);
+  const [logIn, { error: logInError }] = useMutation(LOGIN_USER);
 
   // Queries
   const getUsers = () => useQuery(GET_USERS);
@@ -29,12 +30,14 @@ export const QueriesProvider = ({ children }) => {
     addProduct,
     updateProduct,
     deleteProduct,
+    logIn,
     addUserError,
     updateUserError,
     deleteUserError,
     addProductError,
     updateProductError,
-    deleteProductError
+    deleteProductError,
+    logInError
   };
 
   const queries = {
