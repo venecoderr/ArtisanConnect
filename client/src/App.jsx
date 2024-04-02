@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Outlet } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import Nav from "./components/Nav";
-import Form from './components/form';
+// import Form from './components/form';
 import { FormProvider } from './utils/FormContext';
 
 const httpLink = createHttpLink({
@@ -16,14 +16,14 @@ const client = new ApolloClient({
 
 export default function App(){
   return(
-    <>
+    <div className="w-full h-screen bg-gradient-to-r from-amber-100 to-stone-300/70">
       <ApolloProvider client={client}>
         <Nav/>
-        {/* <Outlet/> */}
+        <Outlet/>
         <FormProvider>
-          <Form/>
+          {/* <Form/> */}
         </FormProvider>
       </ApolloProvider>
-    </>
+    </div>
   )
 }
