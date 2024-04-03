@@ -1,11 +1,12 @@
+// client/src/pages/Home.jsx
 import React from "react";
-import Form from '../components/form.jsx'
+import SignUpForm from '../components/SignUpForm'; // Adjust the path if needed
 
-
-export default function SignUp(){
-    return(
-        <>
-            <SignUpForm/>
-        </>
-    )
+export default function Home() {
+  return (
+    <div id='main'>
+      {/* Render only the SignUpForm */}
+      <SignUpForm />
+    </div>
+  );
 }
