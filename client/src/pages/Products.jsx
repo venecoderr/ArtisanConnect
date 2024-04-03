@@ -20,7 +20,7 @@ export default function Products(){
     return(
         <>
             {/* Products container */}
-            <img className="bg-cover right-0" src="/assets/cover-2.png"></img>
+            <img className="element-cover right-0" src="/assets/cover-2.png"></img>
             <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="products-title">Artisan  <span className="collection"> Collection</span></h2>
