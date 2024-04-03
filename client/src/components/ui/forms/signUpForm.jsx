@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RequiredField from "./requiredField.jsx";
-import { useQueriesContext } from "../../utils/QueriesContext.jsx";
+import { useQueriesContext } from "../../../utils/QueriesContext.jsx";
 
 export default function SignUpForm() {
 
@@ -45,14 +45,15 @@ export default function SignUpForm() {
             setErrorMessage('Password is required');
             return;
         }
-
+        
         try {
             // Call addUser mutation function with the form data
             const newUser = await mutations.addUser({
                 variables: {
                     username: form.username,
                     email: form.email.address,
-                    password: form.password
+                    password: form.password,
+                    role: 'BUYER'
                 }
             });
 

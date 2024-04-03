@@ -1,7 +1,11 @@
 import { useState } from "react";
 import RequiredField from "./requiredField.jsx";
+import { useQueriesContext } from "../../../utils/QueriesContext.jsx";
 
-export default function LoginForm({ loginUser, classNames, validateEmail }) {
+export default function LoginForm() {
+
+    const { mutations, validateEmail, classNames } = useQueriesContext();
+
     const [form, setForm] = useState({
         email: { address: '', valid: true },
         password: ''
@@ -39,7 +43,7 @@ export default function LoginForm({ loginUser, classNames, validateEmail }) {
 
         try {
             // Call loginUser mutation function with the form data
-            await loginUser({
+            await mutations.logIn({
                 variables: {
                     email: form.email.address,
                     password: form.password
