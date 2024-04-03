@@ -50,7 +50,7 @@ export default function Nav(){
                             <Link id="navbar" to='/' className="justify-between m-3 border-b-2">HOME</Link>
                             <Link id="navbar" to='/about' className="justify-between m-3 border-b-2">ABOUT</Link>
                             <Link id="navbar" to='/products' className="justify-between m-3 border-b-2">PRODUCTS</Link>
-                            <Link id="navbar" to='/dashboard' className="justify-between m-3 border-b-2">DASHBOARD</Link>
+                            <Link id="navbar" to='/profile' className="justify-between m-3 border-b-2">DASHBOARD</Link>
                     </div>
                 </div>  
             </div>

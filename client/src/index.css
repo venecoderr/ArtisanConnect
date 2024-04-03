@@ -130,6 +130,29 @@ button:hover{
   align-items: center;
 }
 
+.user-picture {
+  max-width: 150px;
+  max-height: 150px;
+  align-items: center;
+}
+
+.username {
+  text-align: left;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 30px;
+  margin-left: 20px;
+  color: rgb(18, 42, 18);
+
+}
+
+.user-products{
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 30px;
+  color: rgb(56, 14, 14);
+  
+}
+
 @media (min-width: 992px){
   #main-text{
     margin-left: 40%;
@@ -172,3 +195,4 @@ button:hover{
     font-size: 2vw;
   }
 }
+

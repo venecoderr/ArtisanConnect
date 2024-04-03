@@ -1,10 +1,65 @@
 import React from "react";
-import SignUpForm from "../components/ui/signUpForm";
 
-export default function Profile(){
-    return(
+const user = [
+    {
+    id: 1,
+    username: "Username",
+    role: "Seller",
+    imageSrc: 'https://cdn.pixabay.com/photo/2017/02/23/13/05/avatar-2092113_640.png',
+    imageAlt: "Generic Profile Picture",
+    },
+]
+
+const products = [
+    {
+      id: 1,
+      name: 'Basic Tee',
+      href: '#',
+      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: '$35',
+      color: 'Black',
+    },
+  ]
+
+export default function Profile() {
+    return (
         <>
-            <SignUpForm/>
-        </>
-    )
-}
+    <img className="element-cover right-0" src="/assets/cover-2.png"></img>
+    <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
+    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
+    <p className="username">{user[0].username}</p>
+    <img src={user[0].imageSrc} alt={user[0].imageAlt} className="user-picture"/>
+
+    <p className="user-products">Your Products</p>
+    <div id="products-card" className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          {products.map((product) => (
+            <div key={product.id} className="group relative">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                <img
+                  src={product.imageSrc}
+                  alt={product.imageAlt}
+                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                />
+              </div>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <a href={product.href}>
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {product.name}
+                    </a>
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                </div>
+                <p className="text-sm font-medium text-gray-900">{product.price}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      </div>
+    
+      </>
+    );
+  }
