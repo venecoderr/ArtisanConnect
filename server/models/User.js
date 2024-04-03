@@ -15,12 +15,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  role: {
-    type: String,
-    enum: ['SELLER', 'BUYER'],
-    default: 'BUYER'
-  },
-  // more fields as needed, profile information
 });
 
 module.exports = mongoose.model('User', userSchema);
