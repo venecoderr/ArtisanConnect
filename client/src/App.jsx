@@ -21,7 +21,7 @@ export default function App(){
         <QueriesProvider>
           <Nav/>
           {/* <Outlet/> */}
-          <Form formType={'product'}/>
+          <Form formType={'signup'}/>
         </QueriesProvider>
       </ApolloProvider>
     </div>
