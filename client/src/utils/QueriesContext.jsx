@@ -1,7 +1,6 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { ADD_USER, UPDATE_USER, DELETE_USER, ADD_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT, LOGIN_USER } from './mutations';
-import { GET_USERS, GET_USER, GET_PRODUCTS, GET_PRODUCT } from './queries'
 
 const QueriesContext = createContext();
 
@@ -16,12 +15,6 @@ export const QueriesProvider = ({ children }) => {
   const [updateProduct, { error: updateProductError }] = useMutation(UPDATE_PRODUCT);
   const [deleteProduct, { error: deleteProductError }] = useMutation(DELETE_PRODUCT);
   const [logIn, { error: logInError }] = useMutation(LOGIN_USER);
-
-  // Queries
-  const getUsers = () => useQuery(GET_USERS);
-  const getUser = (id) => useQuery(GET_USER, { variables: { id } });
-  const getProducts = () => useQuery(GET_PRODUCTS);
-  const getProduct = (id) => useQuery(GET_PRODUCT, { variables: { id } });
 
   const mutations = {
     addUser,
@@ -40,13 +33,6 @@ export const QueriesProvider = ({ children }) => {
     logInError
   };
 
-  const queries = {
-    getUsers,
-    getUser,
-    getProducts,
-    getProduct
-  }
-
   // Utility function to validate email
   function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -58,10 +44,9 @@ export const QueriesProvider = ({ children }) => {
     return classes.filter(Boolean).join(' ');
   }
 
-  // Pass mutation functions, query methods, error variables, and utility functions through the context
+  // Pass mutation functions, error variables, and utility functions through the context
   const contextValue = {
     mutations,
-    queries,
     validateEmail,
     classNames,
   };

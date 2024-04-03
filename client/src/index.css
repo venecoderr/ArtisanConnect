@@ -114,7 +114,7 @@ button:hover{
   color: rgb(18, 42, 18);
 }
 
-#products-card{
+.products-card{
   display: flex;
   justify-content: center;
   align-items: center;
