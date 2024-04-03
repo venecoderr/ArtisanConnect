@@ -1,18 +1,11 @@
-// server/graphql/typeDefs.js
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-enum Role {
-  SELLER
-  BUYER
-}
-
 type User {
   id: ID!
   username: String!
   email: String!
-  role: Role!
-  products: [Product] # For artisans to see their products
+  products: [Product] # For users to see their products
 }
 
 type Product {
@@ -21,7 +14,7 @@ type Product {
   description: String!
   price: Float!
   artisan: User
-  imageURL: String! # Added field for the image URL
+  imageURL: String!
   createdAt: String
   updatedAt: String
 }
@@ -42,13 +35,13 @@ type Query {
 
 # Mutation type for data modification
 type Mutation {
-  addUser(username: String!, email: String!, password: String!, role: Role!): User
+  addUser(username: String!, email: String!, password: String!): User
   addProduct(name: String!, description: String!, price: Float!, artisanId: ID!, imageURL: String!): Product
-  updateUser(id: ID!, username: String, email: String, role: Role): User
+  updateUser(id: ID!, username: String, email: String): User
   updateProduct(id: ID!, name: String, description: String, price: Float, imageURL: String): Product
   deleteUser(id: ID!): User
   deleteProduct(id: ID!): Product
-  login(email: String!, password: String!): AuthData # Moved login here
+  login(email: String!, password: String!): AuthData
 }
 `;
 
