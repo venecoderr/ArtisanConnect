@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema({
     required: true
   },
   artisan: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId, // References the User who added the product
     ref: 'User',
     required: true
   },
@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Product image URL is required']
   },
-  
+  // Optionally, add timestamps or other fields as needed
 });
 
 module.exports = mongoose.model('Product', productSchema);

@@ -7,7 +7,11 @@
   max-width: 100vw;
 }
 
-.bg-cover{
+#navbar:hover{
+  border-bottom: 2px solid black;
+}
+
+.element-cover{
   max-height: 100vh;
   max-width: 100vw;
   position: absolute;
@@ -20,7 +24,6 @@
   max-width: 100vw;
   position: absolute;
   fill: url('/assets/cover-2.png');
-  opacity: 0.3;
 }
 
 #curve{
@@ -58,37 +61,34 @@
   align-items: center;
   margin-left: 60%;
 }
+.about-page{
+  min-height: 100%;
+}
+
+.text-about{
+  padding: 1.5%;
+}
 
 #about{
-  font-size: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
   text-align: right;
-  font-family: "Bebas Neue", sans-serif;
-  line-height: 1.9;
-  margin-right: 50%;
+  font-family: "Source Serif 4", serif;
   color: rgb(18, 42, 18);
 }
 
-.about-title{
-  font-size: 6vw;
+#about-description{
+  justify-content: center;
+  align-items: center;
   font-family: "Source Serif 4", serif;
-  font-optical-sizing: auto;
-  font-weight: bold;
-  font-style: normal;
-  color: rgb(56, 14, 14);
-  line-height: 1;
-  padding-bottom: 30px;
 }
 
 button:hover{
   background-color: rgb(56, 14, 14);
   color: white;
   border: 1px solid rgb(56, 14, 14);
-}
-
-.img-products{
-  width: 100vw;
-  max-height: 70vh;
-  position: absolute;
 }
 
 .main-wrapper{
@@ -122,6 +122,14 @@ button:hover{
   margin-left: 20%;
 }
 
+.carousel{
+  width: 100vw;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 992px){
   #main-text{
     margin-left: 40%;
@@ -136,7 +144,7 @@ button:hover{
     margin-right: 45%;
   }
 
-  .bg-cover{
+  .element-cover{
     max-width: 100vw;
     max-height: 100vh;
     margin-left: 40%;
@@ -144,12 +152,6 @@ button:hover{
 
   button{
     padding: 6%;
-  }
-
-  .about-bg-cover{
-    max-width: 100vw;
-    max-height: 100vh;
-    margin-left: 40%;
   }
 
   #products-card{
@@ -163,14 +165,10 @@ button:hover{
 
 @media only screen and (max-width: 768px) {
   #about {
-    font-size: 2.5vh; 
+    font-size: 2.5vw; 
     margin-right: 0; 
   }
-}
-
-/* Media Query for larger screens */
-@media only screen and (min-width: 1200px) {
-  #about {
-    font-size: 3.5vh; 
+  #about-description{
+    font-size: 2vw;
   }
 }
