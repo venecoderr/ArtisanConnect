@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 export default function Home(){
     return(
@@ -14,9 +15,11 @@ export default function Home(){
                     <span className="connect">Connect</span></h1>
                 </div>
                 <div className="absolute button">
+                <Link to ="/signup">
                 <button class="bg-transparent text-brown-700 font-semibold py-2 px-4 border rounded">
                     Join US!
                 </button>
+                </Link>
                 </div>
             </div>
         </>
