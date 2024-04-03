@@ -20,8 +20,8 @@ export default function App(){
       <ApolloProvider client={client}>
         <QueriesProvider>
           <Nav/>
+//           <Form formType={'signup'}/>
           <Outlet/>
-          {/* <Form/> */}
         </QueriesProvider>
       </ApolloProvider>
     </div>
