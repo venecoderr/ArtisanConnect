@@ -53,6 +53,7 @@ export default function SignUpForm() {
                     username: form.username,
                     email: form.email.address,
                     password: form.password,
+                    role: 'BUYER'
                 }
             });
 
