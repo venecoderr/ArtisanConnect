@@ -18,10 +18,10 @@ const products = [
 
 export default function Products(){
     return(
-        <>
+        <div className="w-full h-full">
             {/* Products container */}
             <img className="element-cover right-0" src="/assets/cover-2.png"></img>
-            <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
+            <div className="w-full h-full bg-gradient-to-r from-stone-300/70 to-amber-100">
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="products-title">Artisan  <span className="collection"> Collection</span></h2>
 
@@ -52,6 +52,6 @@ export default function Products(){
         </div>
       </div>
             </div>
-        </>
+        </div>
     )
 }
