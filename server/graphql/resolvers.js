@@ -27,11 +27,11 @@ const resolvers = {
       if (!product) throw new Error('Product not found');
       return product;
     },
-    userProducts: async (_, { userId }) => {
-      if (!userId) {
+    userProducts: async (_, { id}) => {
+      if (!id) {
         throw new Error('Missing userId');
       }
-      return await Product.find({ artisan: userId });
+      return await Product.find({ artisan: id });
     }
   },
   Mutation: {
