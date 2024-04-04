@@ -77,12 +77,14 @@
   text-align: right;
   font-family: "Source Serif 4", serif;
   color: rgb(18, 42, 18);
+  border-bottom: 1px solid rgba(18, 42, 18, 0.513);
 }
 
 #about-description{
   justify-content: center;
   align-items: center;
   font-family: "Source Serif 4", serif;
+  padding: 1.5%;
 }
 
 button:hover{
@@ -108,10 +110,16 @@ button:hover{
   line-height: 1;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid rgba(18, 42, 18, 0.51);
+  padding-bottom: 2%;
 }
 
 .collection{
   color: rgb(18, 42, 18);
+}
+
+.product-img:hover{
+  opacity: 0.8;
 }
 
 .products-card{
@@ -131,18 +139,27 @@ button:hover{
 }
 
 .user-picture {
-  max-width: 150px;
-  max-height: 150px;
+  max-width: 45vw;
+  max-height: 20vh;
   align-items: center;
 }
 
 .username {
   text-align: left;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 30px;
+  font-family: "Source Serif 4", serif;
+  font-size: 5vw;
   margin-left: 20px;
   color: rgb(18, 42, 18);
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid rgba(18, 42, 18, 0.491);
+}
 
+.user-description{
+  font-family: "Source Serif 4", serif;
+  justify-content: center;
+  text-align: center;
+  padding-top: 2%;
 }
 
 .user-products{
@@ -151,6 +168,20 @@ button:hover{
   font-size: 30px;
   color: rgb(56, 14, 14);
   
+}
+
+.cover-dashboard{
+  width: 100vw;
+  height: 40vh;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+}
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 992px){
@@ -182,17 +213,39 @@ button:hover{
     justify-content: start;
     align-items: start;
   }
+
+  .about-page{
+    height: 100vh;
+  }
  
+  .cover-dashboard{
+    height: 100vh;
+    width: 40vw;
+    justify-content: start;
+    float: left;
+  }
+
+  .dashboard-layout{
+    display: grid;
+    grid-template-columns: auto;
+    padding-top: 5%;
+  }
 }
+
 
 
 @media only screen and (max-width: 768px) {
   #about {
-    font-size: 2.5vw; 
+    font-size: 3vw; 
     margin-right: 0; 
   }
   #about-description{
     font-size: 2vw;
+    line-height: 0.5;
+  }
+
+  .carousel{
+    height: 85vh;
   }
 }
 

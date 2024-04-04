@@ -88,8 +88,9 @@ export default function SignUpForm() {
     };
 
     return (
-        <>
-            <form className="form" onSubmit={handleFormSubmit}>
+        <div className="h-screen">
+            <p className="username">Join US!</p>
+            <form className="form pt-4" onSubmit={handleFormSubmit}>
                 <section className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                     <section>
                         <label htmlFor="username" className="block text-sm font-semibold leading-6 text-gray-900">
@@ -143,10 +144,10 @@ export default function SignUpForm() {
                             {showRequired.password && !form.password && <RequiredField />}
                         </section>
                     </section>
-                    <section className="mt-10 sm:col-span-2">
+                    <section className="mt-10 sm:col-span-2 submit">
                         <button
                             type="submit"
-                            className="block p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
+                            className="block rounded p-3.5 justify-center text-sm text-grey-900 font-semibold shadow-sm"
                         >SignUp</button>
                     </section>
                 </section>
@@ -156,6 +157,6 @@ export default function SignUpForm() {
                     <p className="error-text">{errorMessage}</p>
                 </section>
             )}
-        </>
+        </div>
     )
 }

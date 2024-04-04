@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Home(){
     return(
         <>
-             <div id='main'>
+             <div id='main' className="h-screen">
                 <img className="element-cover right-0" src="/assets/cover-2.png"></img>
                 <div className='img-container absolute left-0 pr-40'>
                     <img className="object-cover w-100 h-screen" src='/assets/Artisan.png'></img>
