@@ -16,7 +16,7 @@ export default function Home(){
                 </div>
                 <div className="absolute button">
                 <Link to ="/signup">
-                <button class="bg-transparent text-brown-700 font-semibold py-2 px-4 border rounded">
+                <button className="bg-transparent text-brown-700 font-semibold py-2 px-4 border rounded">
                     Join US!
                 </button>
                 </Link>

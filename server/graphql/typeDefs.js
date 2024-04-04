@@ -25,11 +25,11 @@ type AuthData {
   tokenExpiration: Int!
 }
 
-# Query type for fetching data
 type Query {
   users: [User]
   user(id: ID!): User
   products: [Product]
+  userProducts(id: ID!): [Product] 
   product(id: ID!): Product
 }
 

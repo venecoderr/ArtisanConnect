@@ -2,10 +2,10 @@ import React from "react";
 import Form from '../components/form.jsx'
 
 
-export default function SignUp(){
+export default function LogIn(){
     return(
         <>
-            <Form formType={'signup'}/>
+            <Form formType={'login'}/>
         </>
     )
 }
