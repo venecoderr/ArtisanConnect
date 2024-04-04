@@ -1,6 +1,7 @@
 import { useState } from "react";
 import RequiredField from "./requiredField.jsx";
 import { useQueriesContext } from "../../../utils/QueriesContext.jsx";
+import auth from "../../../utils/auth.js";
 
 export default function SignUpForm() {
 
@@ -57,6 +58,14 @@ export default function SignUpForm() {
             });
 
             console.log(newUser)
+
+            const token = await mutations.logIn({
+                variables: {
+                    email: form.email.address,
+                    password: form.password
+                }
+            })
+
             // Reset form state
             setForm({
                 username: '',
@@ -69,6 +78,9 @@ export default function SignUpForm() {
                 password: false
             });
             setErrorMessage('');
+
+            auth.login(token.data.login.token)
+
         } catch (error) {
             console.error('Error occurred during form submission:', error);
             setErrorMessage('An error occurred while processing your request');
