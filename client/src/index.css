@@ -110,10 +110,16 @@ button:hover{
   line-height: 1;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid rgba(18, 42, 18, 0.51);
+  padding-bottom: 2%;
 }
 
 .collection{
   color: rgb(18, 42, 18);
+}
+
+.product-img:hover{
+  opacity: 0.8;
 }
 
 .products-card{
@@ -171,6 +177,11 @@ button:hover{
   justify-content: center;
   align-items: center;
   place-items: center;
+}
+.submit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 992px){
