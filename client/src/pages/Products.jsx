@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../utils/queries';
-
 export default function Products() {
   const { loading, data } = useQuery(GET_PRODUCTS);
-
-  return (
+  return(
     <>
       {/* Products container */}
-      <img className="element-cover right-0" src="/assets/cover-2.png" alt="Cover"></img>
+      <img className="element-cover right-0" src="/assets/cover-2.png" alt="Cover" />
       <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="products-title">Artisan <span className="collection">Collection</span></h2>
@@ -16,26 +14,23 @@ export default function Products() {
             {loading ? (
               <div>Loading...</div>
             ) : (
-              data.products.map((product) => (
+              data && data.products && data.products.map((product) => (
                 <div key={product.id} className="group relative">
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                     <img
-                      src={product.imageSrc}
-                      alt={product.imageAlt}
+                      src={product.imageURL} // Use imageURL from the product
+                      alt={`Image of ${product.name}`} // Use product name for alt text
                       className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                     />
                   </div>
                   <div className="mt-4 flex justify-between">
                     <div>
                       <h3 className="text-sm text-gray-700">
-                        <a href={product.href}>
-                          <span aria-hidden="true" className="absolute inset-0" />
-                          {product.name}
-                        </a>
+                        {product.name}
                       </h3>
-                      <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                      <p className="mt-1 text-sm text-gray-500">{product.description}</p>
                     </div>
-                    <p className="text-sm font-medium text-gray-900">{product.price}</p>
+                    <p className="text-sm font-medium text-gray-900">${product.price}</p>
                   </div>
                 </div>
               ))
@@ -43,6 +38,6 @@ export default function Products() {
           </div>
         </div>
       </div>
-</>
-  )
-              }
+    </>
+  );
+}
