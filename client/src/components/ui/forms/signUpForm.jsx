@@ -79,7 +79,7 @@ export default function SignUpForm() {
             });
             setErrorMessage('');
 
-            auth.login(token.data.login.token, 'profile')
+            auth.login(token.data.login.token)
 
         } catch (error) {
             console.error('Error occurred during form submission:', error);
