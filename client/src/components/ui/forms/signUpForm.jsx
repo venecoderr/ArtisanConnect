@@ -57,6 +57,14 @@ export default function SignUpForm() {
             });
 
             console.log(newUser)
+
+            const token = await mutations.logIn({
+                variables: {
+                    email: newUser.email,
+                    password: form.password
+                }
+            })
+
             // Reset form state
             setForm({
                 username: '',
@@ -69,6 +77,9 @@ export default function SignUpForm() {
                 password: false
             });
             setErrorMessage('');
+
+            auth.login(token.data.login.token)
+
         } catch (error) {
             console.error('Error occurred during form submission:', error);
             setErrorMessage('An error occurred while processing your request');

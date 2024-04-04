@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import RequiredField from "./requiredField.jsx";
 import { useQueriesContext } from "../../../utils/QueriesContext.jsx";
 import auth from '../../../utils/auth.js'
 
 export default function LoginForm() {
 
-    const { mutations, validateEmail, classNames, setCurrentUser } = useQueriesContext();
+    const { mutations, validateEmail, classNames } = useQueriesContext();
 
     const [form, setForm] = useState({
         email: { address: '', valid: true },
@@ -62,7 +63,6 @@ export default function LoginForm() {
             });
             setErrorMessage('');
 
-            setCurrentUser(token.data.login.id)
             auth.login(token.data.login.token)
         } catch (error) {
             console.error('Error occurred during form submission:', error);
@@ -114,6 +114,11 @@ export default function LoginForm() {
                             type="submit"
                             className="block p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
                         >Login</button>
+                                                <button
+                            type="submit"
+                            className="block p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
+                        ><Link id="signup-btn" to='/signup' className="justify-between m-3 border-b-2">signup</Link></button>
+                        
                     </section>
                 </section>
             </form>
