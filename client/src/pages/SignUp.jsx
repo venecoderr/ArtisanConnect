@@ -1,11 +1,11 @@
 import React from "react";
-import SignUpForm from '../components/ui/forms/signUpForm.jsx'
+import Form from '../components/form.jsx'
 
 
 export default function SignUp(){
     return(
         <>
-            <SignUpForm/>
+            <Form formType={'signup'}/>
         </>
     )
 }
