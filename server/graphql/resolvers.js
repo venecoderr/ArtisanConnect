@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken');
 
 // Helper function to create a JWT token
 const createToken = (user, secret, expiresIn) => {
-  const { id, email } = user; // Note that 'role' is no longer included
-  return jwt.sign({ id, email }, secret, { expiresIn });
+  const { id, email, username } = user;
+  return jwt.sign({ id, email, username }, secret, { expiresIn });
 };
 
 const resolvers = {
@@ -27,6 +27,12 @@ const resolvers = {
       if (!product) throw new Error('Product not found');
       return product;
     },
+    userProducts: async (_, { userId }) => {
+      if (!userId) {
+        throw new Error('Missing userId');
+      }
+      return await Product.find({ artisan: userId });
+    }
   },
   Mutation: {
     // Handles user login

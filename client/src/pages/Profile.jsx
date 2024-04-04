@@ -1,36 +1,21 @@
 import React from "react";
-import SignUpForm from "../components/ui/forms/signUpForm";
-
-const user = [
-    {
-    id: 1,
-    username: "Username",
-    role: "Seller",
-    imageSrc: 'https://cdn.pixabay.com/photo/2017/02/23/13/05/avatar-2092113_640.png',
-    imageAlt: "Generic Profile Picture",
-    },
-]
-
-const products = [
-    {
-      id: 1,
-      name: 'Basic Tee',
-      href: '#',
-      imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg',
-      imageAlt: "Front of men's Basic Tee in black.",
-      price: '$35',
-      color: 'Black',
-    },
-  ]
+import auth from '../utils/auth'
+import { GET_USER_PRODUCTS } from "../utils/queries";
+import { useQuery } from "@apollo/client";
 
 export default function Profile() {
+    const user = auth.getProfile()
+    const { loading, data, error } = useQuery(GET_USER_PRODUCTS, {
+      variables: { id: user.id }
+    })
+    const products = data.userProducts
     return (
-        <>
+    <>
     <img className="element-cover right-0" src="/assets/cover-2.png"></img>
     <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
-    <p className="username">{user[0].username}</p>
-    <img src={user[0].imageSrc} alt={user[0].imageAlt} className="user-picture"/>
+    <p className="username">Hi, {user.username}</p>
+    <img src='https://placehold.co/400' alt='profile picture' className="user-picture"/>
 
     <p className="user-products">Your Products</p>
     <div id="products-card" className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">

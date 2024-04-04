@@ -37,6 +37,22 @@ export const GET_PRODUCTS = gql`
   }
 `;
 
+export const GET_USER_PRODUCTS = gql`
+query GetUserProducts($id: ID!) {
+  userProducts(userId: $id) {
+    id
+    name
+    description
+    price
+    imageURL
+    artisan {
+      id
+      username
+    }
+  }
+}
+`;
+
 export const GET_PRODUCT = gql`
   query GetProduct($id: ID!) {
     product(id: $id) {

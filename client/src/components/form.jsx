@@ -6,9 +6,11 @@ import ProductForm from "./ui/forms/productForm";
 export default function Form({formType}) {
     return (
         <>
-            {formType === 'signup' && <SignUpForm />}
-            {formType === 'login' && <LogInForm />}
-            {formType === 'product' && <ProductForm />}
+            <section className="container">
+                {formType === 'signup' && <SignUpForm />}
+                {formType === 'login' && <LogInForm />}
+                {formType === 'product' && <ProductForm />}
+            </section>
         </>
     );
 }
