@@ -1,23 +1,21 @@
 import { gql } from '@apollo/client';
 
 export const ADD_USER = gql`
-  mutation AddUser($username: String!, $email: String!, $password: String!, $role: String!) {
-    addUser(username: $username, email: $email, password: $password, role: $role) {
+  mutation AddUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
       id
       username
       email
-      role
     }
   }
 `;
 
 export const UPDATE_USER = gql`
-  mutation UpdateUser($id: ID!, $username: String!, $email: String!, $role: String!) {
-    updateUser(id: $id, username: $username, email: $email, role: $role) {
+  mutation UpdateUser($id: ID!, $username: String, $email: String) {
+    updateUser(id: $id, username: $username, email: $email) {
       id
       username
       email
-      role
     }
   }
 `;
@@ -28,7 +26,6 @@ export const DELETE_USER = gql`
       id
       username
       email
-      role
     }
   }
 `;
@@ -44,7 +41,6 @@ export const ADD_PRODUCT = gql`
         id
         username
         email
-        role
       }
       imageURL
     }
@@ -52,7 +48,7 @@ export const ADD_PRODUCT = gql`
 `;
 
 export const UPDATE_PRODUCT = gql`
-  mutation UpdateProduct($id: ID!, $name: String!, $description: String!, $price: Float!, $imageURL: String) {
+  mutation UpdateProduct($id: ID!, $name: String, $description: String, $price: Float, $imageURL: String) {
     updateProduct(id: $id, name: $name, description: $description, price: $price, imageURL: $imageURL) {
       id
       name
@@ -70,6 +66,7 @@ export const DELETE_PRODUCT = gql`
       name
       description
       price
+      imageURL
     }
   }
 `;

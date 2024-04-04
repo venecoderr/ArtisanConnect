@@ -1,4 +1,5 @@
 import React from "react";
+import { useQueriesContext } from "../utils/QueriesContext";
 
 //let him know that signUpForm throws up an error
 // Make a configuration to add all products here and iterate them in map.

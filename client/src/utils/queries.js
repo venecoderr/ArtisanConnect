@@ -6,7 +6,6 @@ export const GET_USERS = gql`
       id
       username
       email
-      role
     }
   }
 `;
@@ -17,7 +16,6 @@ export const GET_USER = gql`
       id
       username
       email
-      role
     }
   }
 `;
@@ -33,9 +31,8 @@ export const GET_PRODUCTS = gql`
         id
         username
         email
-        role
       }
-      imageURL # Added field for product image URL
+      imageURL
     }
   }
 `;
@@ -51,10 +48,8 @@ export const GET_PRODUCT = gql`
         id
         username
         email
-        role
       }
-      imageURL # Added field for product image URL
+      imageURL
     }
   }
 `;
-
