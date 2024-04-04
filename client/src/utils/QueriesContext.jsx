@@ -8,29 +8,30 @@ export const useQueriesContext = () => useContext(QueriesContext);
 
 export const QueriesProvider = ({ children }) => {
   // Destructure the mutation functions and error variables
+
+  const [logIn, { error: logInError}] = useMutation(LOGIN_USER)
   const [addUser, { error: addUserError }] = useMutation(ADD_USER);
   const [updateUser, { error: updateUserError }] = useMutation(UPDATE_USER);
   const [deleteUser, { error: deleteUserError }] = useMutation(DELETE_USER);
   const [addProduct, { error: addProductError }] = useMutation(ADD_PRODUCT);
   const [updateProduct, { error: updateProductError }] = useMutation(UPDATE_PRODUCT);
   const [deleteProduct, { error: deleteProductError }] = useMutation(DELETE_PRODUCT);
-  const [logIn, { error: logInError }] = useMutation(LOGIN_USER);
 
   const mutations = {
+    logIn,
     addUser,
     updateUser,
     deleteUser,
     addProduct,
     updateProduct,
     deleteProduct,
-    logIn,
+    logInError,
     addUserError,
     updateUserError,
     deleteUserError,
     addProductError,
     updateProductError,
     deleteProductError,
-    logInError
   };
 
   // Utility function to validate email

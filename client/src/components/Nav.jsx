@@ -5,6 +5,7 @@ import { AiOutlineMenu,
         AiOutlineFolderOpen, 
         AiOutlineSolution } from 'react-icons/ai'
 import { Link } from "react-router-dom";
+import auth from '../utils/auth'
 
 export default function Nav(){
 
@@ -12,6 +13,11 @@ export default function Nav(){
     const handleNav = () =>{
         setNav(!nav);
     };
+
+    const isLoggedIn = auth.getToken();
+
+    // Define the destination link based on authentication status
+    const destinationLink = isLoggedIn ? '/profile' : '/login';
 
     return(
         <>
@@ -34,7 +40,11 @@ export default function Nav(){
                                     <AiOutlineFolderOpen size={20}/>
                                     <span className="pl-4">PRODUCTS</span>
                                 </Link>
+
                                 <Link to='/profile' className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-brown-100 shadow-gray-400 m-2 p-4 hover:scale-110 ease-in duration-200">
+
+                                <Link to={destinationLink} className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-brown-100 shadow-gray-400 m-2 p-4 hover:scale-110 ease-in duration-200">
+
                                     <AiOutlineSolution size={20}/>
                                     <span className="pl-4">DASHBOARD</span>
                                 </Link>
@@ -50,7 +60,7 @@ export default function Nav(){
                             <Link id="navbar" to='/' className="justify-between m-3 border-b-2">HOME</Link>
                             <Link id="navbar" to='/about' className="justify-between m-3 border-b-2">ABOUT</Link>
                             <Link id="navbar" to='/products' className="justify-between m-3 border-b-2">PRODUCTS</Link>
-                            <Link id="navbar" to='/profile' className="justify-between m-3 border-b-2">DASHBOARD</Link>
+                            <Link id="navbar" to={destinationLink} className="justify-between m-3 border-b-2">DASHBOARD</Link>
                     </div>
                 </div>  
             </div>
