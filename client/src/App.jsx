@@ -12,7 +12,6 @@ export default function App(){
 
           <Outlet/>
         </QueriesProvider>
-
     </div>
   )
 }
