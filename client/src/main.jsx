@@ -12,6 +12,7 @@ import Products from './pages/Products.jsx';
 import Profile from './pages/Profile.jsx';
 import SignUp from './pages/SignUp.jsx';
 import LogIn from './pages/LogIn.jsx'
+// import ProductsTest from "./pages/ProductsTest.jsx";
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
