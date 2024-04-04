@@ -40,7 +40,11 @@ export default function Nav(){
                                     <AiOutlineFolderOpen size={20}/>
                                     <span className="pl-4">PRODUCTS</span>
                                 </Link>
+
+                                <Link to='/profile' className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-brown-100 shadow-gray-400 m-2 p-4 hover:scale-110 ease-in duration-200">
+
                                 <Link to={destinationLink} className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-brown-100 shadow-gray-400 m-2 p-4 hover:scale-110 ease-in duration-200">
+
                                     <AiOutlineSolution size={20}/>
                                     <span className="pl-4">DASHBOARD</span>
                                 </Link>
