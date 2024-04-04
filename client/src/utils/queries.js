@@ -39,7 +39,7 @@ export const GET_PRODUCTS = gql`
 
 export const GET_USER_PRODUCTS = gql`
 query GetUserProducts($id: ID!) {
-  userProducts(userId: $id) {
+  userProducts(id: $id) {
     id
     name
     description
