@@ -51,11 +51,11 @@ const resolvers = {
     addUser: async (_, { username, email, password }) => {
       const existingUser = await User.findOne({ email });
       if (existingUser) throw new Error('User already exists');
-      const hashedPassword = await bcrypt.hash(password, 12);
+      // const hashedPassword = await bcrypt.hash(password, 12);
       const newUser = new User({
         username,
         email,
-        password: hashedPassword
+        password
       });
       const result = await newUser.save();
       return result;
