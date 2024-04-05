@@ -170,6 +170,12 @@ button:hover{
   
 }
 
+/* .loading-bg{
+  min-height: 100vh;
+  max-height: 100vh;
+  padding-top: 5%;
+} */
+
 .cover-dashboard{
   width: 100vw;
   height: 40vh;
