@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../utils/queries';
+import { Link } from 'react-router-dom';
 export default function Products() {
   const { loading, data } = useQuery(GET_PRODUCTS);
   return(

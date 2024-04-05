@@ -11,7 +11,8 @@ import About from './pages/About.jsx';
 import Products from './pages/Products.jsx';
 import Profile from './pages/Profile.jsx';
 import SignUp from './pages/SignUp.jsx';
-import LogIn from './pages/LogIn.jsx'
+import LogIn from './pages/LogIn.jsx';
+import ProductPage from './pages/ProductPage.jsx';
 // import ProductsTest from "./pages/ProductsTest.jsx";
 
 const authLink = setContext((_, { headers }) => {
@@ -34,6 +35,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
 
 const router = createBrowserRouter([
   {
@@ -63,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LogIn/>
+      },
+      {
+        path: '/productpage',
+        element: <ProductPage/>
       }
     ]
   }
@@ -72,4 +78,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <ApolloProvider client={client}>
     <RouterProvider router={router}/>
   </ApolloProvider>
+  
 )
