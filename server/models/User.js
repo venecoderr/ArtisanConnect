@@ -18,7 +18,6 @@ const userSchema = new mongoose.Schema({
     required: true
   },
 });
-
 // Pre-save hook to hash the password
 userSchema.pre('save', function(next) {
   var user = this;
