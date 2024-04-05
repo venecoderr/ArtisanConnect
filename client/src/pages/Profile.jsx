@@ -2,6 +2,7 @@ import React from "react";
 import auth from '../utils/auth'
 import { GET_USER_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+import LogOutBtn from "../components/ui/forms/logOutBtn";
 
 export default function Profile() {
     const user = auth.getProfile()
@@ -52,6 +53,7 @@ export default function Profile() {
             </div>
           </div>
         </div>
+        <LogOutBtn/>
       </div>
     );
   }
