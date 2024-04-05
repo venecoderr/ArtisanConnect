@@ -2,7 +2,13 @@ import { jwtDecode } from 'jwt-decode';
 
 class AuthService {
   getProfile() {
-    return jwtDecode(this.getToken());
+    const token = this.getToken();
+
+    if (!token) {
+        return null; // Or return an empty object or any other appropriate value
+    }
+
+    return jwtDecode(token);
   }
 
   loggedIn() {
@@ -28,7 +34,11 @@ class AuthService {
   }
 
   getToken() {
-    return localStorage.getItem('token');
+    if(localStorage.getItem('token')){
+      return localStorage.getItem('token')
+    } else {
+      return
+    }
   }
 
   login(idToken) {
@@ -38,7 +48,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem('token');
-    window.location.reload();
+    window.location.replace('/');
   }
 }
 

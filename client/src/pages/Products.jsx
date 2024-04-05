@@ -1,12 +1,16 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../utils/queries';
+
 export default function Products() {
-  const { loading, data } = useQuery(GET_PRODUCTS);
+
+  const { loading, data, error } = useQuery(GET_PRODUCTS);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  
   return(
     <>
       {/* Products container */}
-      <img className="element-cover right-0" src="/assets/cover-2.png" alt="Cover" />
       <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="products-title">Artisan <span className="collection">Collection</span></h2>
