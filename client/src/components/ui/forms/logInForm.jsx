@@ -118,7 +118,7 @@ export default function LoginForm() {
                                                 <button
                             type="submit"
                             className="rounded block p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
-                        ><Link id="signup-btn" to='/signup' className="justify-between m-3 border-b-2">signup</Link></button>
+                        ><Link id="signup-btn" to='/signup' className="justify-between m-3 border-b-2">Sign Up</Link></button>
                         
                     </section>
                 </section>
