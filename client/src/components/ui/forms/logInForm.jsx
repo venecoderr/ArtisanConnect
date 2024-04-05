@@ -72,6 +72,7 @@ export default function LoginForm() {
 
     return (
         <>
+            <p className="username">Welcome!</p>
             <form className="form" onSubmit={handleFormSubmit}>
                 <section className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                     <section className="sm:col-span-2">
@@ -109,14 +110,14 @@ export default function LoginForm() {
                             {showRequired.password && !form.password && <RequiredField />}
                         </section>
                     </section>
-                    <section className="mt-10 sm:col-span-2">
+                    <section className="mt-10 sm:col-span-2 submit p-2">
                         <button
                             type="submit"
-                            className="block p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
+                            className="rounded block p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
                         >Login</button>
                                                 <button
                             type="submit"
-                            className="block p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
+                            className="rounded block p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
                         ><Link id="signup-btn" to='/signup' className="justify-between m-3 border-b-2">signup</Link></button>
                         
                     </section>

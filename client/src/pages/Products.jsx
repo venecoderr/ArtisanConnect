@@ -1,19 +1,25 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../utils/queries';
-import { Link } from 'react-router-dom';
+
 export default function Products() {
-  const { loading, data } = useQuery(GET_PRODUCTS);
+
+  const { loading, data, error } = useQuery(GET_PRODUCTS);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  
   return(
     <>
       {/* Products container */}
-      <img className="element-cover right-0" src="/assets/cover-2.png" alt="Cover" />
       <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
+      <img className="element-cover bg-fixed right-0 z-[-1]" src="/assets/cover-2.png"></img>
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="products-title">Artisan <span className="collection">Collection</span></h2>
           <div id="products-card" className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {loading ? (
-              <div>Loading...</div>
+              <div className="w-full h-100 bg-gradient-to-r from-stone-300/70 to-amber-100">
+                <p>Loading...</p>
+              </div>
             ) : (
               data && data.products && data.products.map((product) => (
                 <div key={product.id} className="group relative">

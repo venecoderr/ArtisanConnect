@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useState,  }from "react";
 import auth from '../utils/auth'
 import { GET_USER_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+import LogOutBtn from "../components/ui/forms/logOutBtn";
+import LogIn from "./LogIn";
 
 export default function Profile() {
-    const user = auth.getProfile()
-    const { loading, data, error } = useQuery(GET_USER_PRODUCTS, {
-      variables: { id: user.id }
-    })
+  const user = auth.getProfile();
+  if (!user) {
+    return <LogIn />; // Redirect to login page if user is not logged in
+  }
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error.message}</p>;
+  const { loading, data, error } = useQuery(GET_USER_PRODUCTS, {
+    variables: { id: user.id }
+  })
 
-    const userProducts = data.userProducts;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
-    console.log(userProducts); // Check the structure of userProducts
+  const userProducts = data.userProducts;
 
-    return (
+  console.log(userProducts); // Check the structure of userProducts
+
+  return (
       <div className="h-screen">
         <div className="w-full h-100 bg-gradient-to-r from-stone-300/70 to-amber-100">
         <img className="cover-dashboard object-cover" src="/assets/dashboard-cover.jpg"></img>
@@ -52,6 +58,7 @@ export default function Profile() {
             </div>
           </div>
         </div>
+        <LogOutBtn/>
       </div>
     );
   }
