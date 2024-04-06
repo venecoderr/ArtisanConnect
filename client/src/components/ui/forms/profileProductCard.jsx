@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import ProductBtn from '../ProductBtn'
+import DeleteBtn from '../delelteBtn'
 
 export default function ProfileProduct({ product }) {
     return (
@@ -24,7 +25,10 @@ export default function ProfileProduct({ product }) {
                     <p className="text-sm font-medium text-gray-900">{product.price}</p>
                 </div>
             </Link>
-            <ProductBtn className='grid-cols-1' product={product}/>
+            <div>
+                <ProductBtn className='grid-cols-1' product={product}/>
+                {/* <DeleteBtn productId={product.id}/> */}
+            </div>
         </div>
         </>
     )
