@@ -18,12 +18,12 @@ export default function Nav(){
 
     // Define the destination link based on authentication status
     const destinationLink = isLoggedIn ? '/profile' : '/login';
+    const destinationText = isLoggedIn ? 'DASHBOARD' : 'LOG IN';
 
     return(
         <>
             <div className="flex lg:flex-1">
                 <AiOutlineMenu onClick={handleNav} className="absolute top-4 right-4 z-[99] md:hidden"/>
-                {/* Apply some conditionals => If our nav statement is true, display some html */}
                     {
                         nav ? (
                             <>
@@ -44,7 +44,7 @@ export default function Nav(){
                                 <Link to={destinationLink} className="w-[75%] flex justify-center items-center rounded-full shadow-lg bg-brown-100 shadow-gray-400 m-2 p-4 hover:scale-110 ease-in duration-200">
 
                                     <AiOutlineSolution size={20}/>
-                                    <span className="pl-4">DASHBOARD</span>
+                                    <span className="pl-4">{destinationText}</span>
                                 </Link>
                             </div>
                             </>
@@ -58,7 +58,7 @@ export default function Nav(){
                             <Link id="navbar" to='/' className="justify-between m-3 border-b-2">HOME</Link>
                             <Link id="navbar" to='/about' className="justify-between m-3 border-b-2">ABOUT</Link>
                             <Link id="navbar" to='/products' className="justify-between m-3 border-b-2">PRODUCTS</Link>
-                            <Link id="navbar" to={destinationLink} className="justify-between m-3 border-b-2">DASHBOARD</Link>
+                            <Link id="navbar" to={destinationLink} className="justify-between m-3 border-b-2">{destinationText}</Link>
                     </div>
                 </div>  
             </div>

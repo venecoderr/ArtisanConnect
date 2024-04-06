@@ -13,7 +13,7 @@ import Profile from './pages/Profile.jsx';
 import SignUp from './pages/SignUp.jsx';
 import LogIn from './pages/LogIn.jsx';
 import ProductPage from './pages/ProductPage.jsx';
-// import ProductsTest from "./pages/ProductsTest.jsx";
+import PublicProfile from "./pages/PublicProile.jsx";
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -56,7 +56,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <Profile/>
+        element: <Profile/>,
+      },
+      {
+        path: 'profile/public/:id',
+        element: <PublicProfile/>
       },
       {
         path: '/signup',
@@ -67,7 +71,7 @@ const router = createBrowserRouter([
         element: <LogIn/>
       },
       {
-        path: '/productpage',
+        path: '/product/:id',
         element: <ProductPage/>
       }
     ]
