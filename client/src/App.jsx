@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import { Outlet, Route, Routes, RouterProvider } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { QueriesProvider } from './utils/QueriesContext.jsx';
 import Nav from "./components/Nav";
-import Products from './pages/Products.jsx';
-import ProductPage from './pages/ProductPage.jsx';
 
 export default function App(){
   return(
@@ -11,13 +9,9 @@ export default function App(){
 
         <QueriesProvider>
           <Nav/>
+
           <Outlet/>
         </QueriesProvider>
-        <Routes>
-   <Route path="*" exact element={<Products />} />
-   <Route path="/product/:id" element={<ProductPage />} />
-  </Routes>
- 
     </div>
   )
 }

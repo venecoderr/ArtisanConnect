@@ -1,5 +1,5 @@
 import { useState } from "react"
-import auth from "../../../utils/auth"
+import auth from "../../utils/auth"
 
 export default function LogOutBtn() {
 
