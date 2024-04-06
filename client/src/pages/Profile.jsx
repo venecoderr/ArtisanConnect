@@ -38,8 +38,8 @@ export default function Profile() {
             </div>
           </div>
           <div>
-          <LogOutBtn/>
-          <ProductBtn/>
+            <LogOutBtn/>
+            <ProductBtn/>
           </div>
         </div>
       </div>
