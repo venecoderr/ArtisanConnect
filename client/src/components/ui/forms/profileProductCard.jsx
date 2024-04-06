@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom'
-import ProductBtn from '../ProductBtn'
-import DeleteBtn from '../delelteBtn'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ProductBtn from '../ProductBtn';
+import DeleteBtn from '../deleteBtn';
+import { useQueriesContext } from '../../../utils/QueriesContext';
 
 export default function ProfileProduct({ product }) {
+
     return (
-        <>
         <div key={product.id} className="group relative">
             <Link to={`/product/${product.id}`} className="group">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
@@ -26,10 +28,9 @@ export default function ProfileProduct({ product }) {
                 </div>
             </Link>
             <div>
-                <ProductBtn className='grid-cols-1' product={product}/>
-                {/* <DeleteBtn productId={product.id}/> */}
+                <ProductBtn product={product}/>
+                <DeleteBtn productId={product.id}/>
             </div>
         </div>
-        </>
-    )
+    );
 }

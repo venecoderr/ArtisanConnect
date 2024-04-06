@@ -101,13 +101,11 @@ export default function ProductForm({ product }) {
             });
             setErrorMessage('');
 
-            if (!product) {
-               window.location.reload()
-            }
-
         } catch (error) {
             console.error('Error occurred during form submission:', error);
             setErrorMessage('An error occurred while processing your request');
+        } finally {
+            window.location.reload()
         }
     };
 

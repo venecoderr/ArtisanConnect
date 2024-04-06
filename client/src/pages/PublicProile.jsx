@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { GET_USER_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import {useParams} from "react-router-dom"
+import Home from './Home' 
 
 export default function PublicProfile() {
   const { id } = useParams();
@@ -14,13 +15,18 @@ export default function PublicProfile() {
   if (error) return <p>Error: {error.message}</p>;
 
   const userProducts = data.userProducts;
-  console.log(userProducts)
+
+  if (userProducts.length === 0) {
+    return <Home />;
+  }
+
   return (
+    <>
       <div className="h-screen">
         <div className="w-full h-100 bg-gradient-to-r from-stone-300/70 to-amber-100">
         <img className="cover-dashboard object-cover" src="/assets/dashboard-cover.jpg"></img>
           <div className="dashboard-layout mx-auto max-w-2xl p-4 justify-center">
-            <p className="username">{userProducts[0].artisan.username}'s products</p>
+            {/* <p className="username">{userProducts[0].artisan.username}'s products</p> */}
             <p className="user-description">Thanks for supporting our Community!</p>
             <p className="user-products">Your Products</p>
             <div id="products-card" className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -50,5 +56,6 @@ export default function PublicProfile() {
           </div>
         </div>
       </div>
+    </>
     );
   }

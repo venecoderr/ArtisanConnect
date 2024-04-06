@@ -30,7 +30,6 @@ export default function Profile() {
           <div className="dashboard-layout mx-auto max-w-2xl p-4 justify-center">
             <p className="username">Hi, {user.username}</p>
             <p className="user-description">Thanks for supporting our Community!</p>
-            {/* <img src='https://placehold.co/400' alt='profile picture' className="user-picture"/> */}
             <p className="user-products">Your Products</p>
             <div id="products-card" className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
               {userProducts.map((product) => (
