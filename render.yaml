@@ -14,7 +14,6 @@ services:
       mountPath: /data/db
       sizeGB: 10
     autoDeploy: false
-
   - type: web
     name: artisan-connect
     env: node
@@ -26,7 +25,6 @@ services:
       - key: MONGODB_URI
         fromService:
           name: mongodb
-          type: addon
+          type: env
     healthCheckPath: /health
-
 version: "1"
