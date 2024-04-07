@@ -14,6 +14,7 @@ services:
       mountPath: /data/db
       sizeGB: 10
     autoDeploy: false
+
   - type: web
     name: artisan-connect
     env: node
@@ -22,9 +23,7 @@ services:
     plan: starter
     region: oregon
     envVars:
-      - key: MONGODB_URI
-        fromService:
-          name: mongodb
-          type: env
+      MONGODB_URI: ${mongodb.MONGODB_URI}
     healthCheckPath: /health
+
 version: "1"
