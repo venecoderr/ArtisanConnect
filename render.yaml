@@ -14,6 +14,7 @@ services:
       mountPath: /data/db
       sizeGB: 10
     autoDeploy: false
+
   - type: web
     name: artisan-connect
     env: node
@@ -39,5 +40,5 @@ services:
       dockerfile: Dockerfile
       dockerContext: .
       dockerfilePath: ./Dockerfile
-version: "1"
 
+version: "1"
