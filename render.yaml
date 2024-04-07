@@ -17,6 +17,6 @@ services:
     plan: starter
     region: oregon
     envVars:
-      MONGODB_URI: "mongodb://placeholder-uri"
+      MONGODB_URI: "${{ services.mongodb.url }}"
     healthCheckPath: /health
 version: "1"
