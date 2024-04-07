@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../utils/queries';
+import spinner from '/assets/spinner.gif';
 
 export default function Products() {
 
@@ -17,8 +18,8 @@ export default function Products() {
           <h2 className="products-title">Artisan <span className="collection">Collection</span></h2>
           <div id="products-card" className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {loading ? (
-              <div className="w-full h-100 bg-gradient-to-r from-stone-300/70 to-amber-100">
-                <p>Loading...</p>
+              <div className="h-100">
+                <img src={spinner} alt="loading"></img>
               </div>
             ) : (
               data && data.products && data.products.map((product) => (
