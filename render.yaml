@@ -27,8 +27,6 @@ services:
         fromService:
           name: mongodb
           type: addon
-    routes:
-      - path: /
     healthCheckPath: /health
 
 version: "1"
