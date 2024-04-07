@@ -5,10 +5,11 @@ class AuthService {
     const token = this.getToken();
 
     if (!token) {
-        return null; // Or return an empty object or any other appropriate value
+      return null;
     }
 
-    return jwtDecode(token);
+    const decodedToken = jwtDecode(token)
+    return decodedToken;
   }
 
   loggedIn() {
@@ -34,12 +35,10 @@ class AuthService {
   }
 
   getToken() {
-    if(localStorage.getItem('token')){
-      return localStorage.getItem('token')
-    } else {
-      return
-    }
+    const token = localStorage.getItem('token');
+    return token ? token : null;
   }
+  
 
   login(idToken) {
     localStorage.setItem('token', idToken);
