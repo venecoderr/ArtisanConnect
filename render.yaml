@@ -7,14 +7,7 @@ services:
     branch: main
     plan: starter
     region: oregon
-    dockerContext: .
-    dockerfilePath: ./Dockerfile
-    disk:
-      name: data
-      mountPath: /data/db
-      sizeGB: 10
     autoDeploy: false
-
   - type: web
     name: artisan-connect
     env: node
@@ -25,5 +18,4 @@ services:
     envVars:
       MONGODB_URI: ${service.mongodb.MONGODB_URI}
     healthCheckPath: /health
-
 version: "1"
