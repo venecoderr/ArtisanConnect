@@ -1,0 +1,42 @@
+# Exported from Render on 2024-04-07T01:38:38Z
+services:
+  - type: pserv
+    name: mongodb
+    runtime: docker
+    repo: https://github.com/render-examples/mongodb
+    branch: master
+    plan: starter
+    region: oregon
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    disk:
+      name: data
+      mountPath: /data/db
+      sizeGB: 10
+    autoDeploy: false
+  - type: web
+    name: your-app-name
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
+    github:
+      repo: your-github-username/your-repo-name
+      branch: main
+    plan: starter
+    region: oregon
+    envVars:
+      - key: MONGODB_URI
+        fromService:
+          name: mongodb
+          type: addon
+    routes:
+      - path: /
+        check: 200,404,500
+    healthCheckPath: /health
+    buildEnv:
+      NODE_ENV: production
+    build:
+      dockerfile: Dockerfile
+      dockerContext: .
+      dockerfilePath: ./Dockerfile
+version: "1"
