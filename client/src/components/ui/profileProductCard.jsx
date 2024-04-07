@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProductBtn from '../ProductBtn';
-import DeleteBtn from '../deleteBtn';
-import { useQueriesContext } from '../../../utils/QueriesContext';
+import ProductBtn from './ProductBtn';
+import DeleteBtn from './deleteBtn';
 
 export default function ProfileProduct({ product }) {
 
