@@ -4,7 +4,7 @@ services:
     name: mongodb
     runtime: docker
     repo: https://github.com/render-examples/mongodb
-    branch: master
+    branch: main
     plan: starter
     region: oregon
     dockerContext: .
@@ -20,9 +20,6 @@ services:
     env: node
     buildCommand: npm install && npm run build
     startCommand: node server.js
-    github:
-      repo: venecoderr/ArtisanConnect
-      branch: main
     plan: starter
     region: oregon
     envVars:
@@ -34,11 +31,5 @@ services:
       - path: /
         check: 200,404,500
     healthCheckPath: /health
-    buildEnv:
-      NODE_ENV: production
-    build:
-      dockerfile: Dockerfile
-      dockerContext: .
-      dockerfilePath: ./Dockerfile
 
 version: "1"
