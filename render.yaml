@@ -23,7 +23,7 @@ services:
     plan: starter
     region: oregon
     envVars:
-      MONGODB_URI: ${mongodb.MONGODB_URI}
+      MONGODB_URI: ${service.mongodb.MONGODB_URI}
     healthCheckPath: /health
 
 version: "1"
