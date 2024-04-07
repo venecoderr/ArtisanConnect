@@ -24,6 +24,10 @@ services:
     envVars:
       - key: SEED_PASS
         sync: false
+      - key: MONGODB_URI
+        sync: true
+      - key: JWT_SECRET
+        sync: true
     region: oregon
     buildCommand: npm install
     startCommand: node server/server.js
