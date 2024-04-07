@@ -1,4 +1,4 @@
-# Exported from Render on 2024-04-07T02:07:34Z
+n# Exported from Render on 2024-04-07T02:07:34Z
 services:
   - type: pserv
     name: mongodb
@@ -24,7 +24,7 @@ services:
     envVars:
       - key: SEED_PASS
         sync: false
-    region: ohio
+    region: oregon
     buildCommand: npm install
     startCommand: node server/server.js
 version: "1"
