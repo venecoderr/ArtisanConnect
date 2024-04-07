@@ -1,7 +1,8 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../utils/queries';
-import spinner from '/assets/spinner.gif';
+import ProductPage from "./ProductPage";
+import { Link } from 'react-router-dom'; // Import Link for navigation
 
 export default function Products() {
 
@@ -13,7 +14,7 @@ export default function Products() {
     <>
       {/* Products container */}
       <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
-      <img className="element-cover bg-fixed right-0 z-[-1]" src="/assets/cover-2.png"></img>
+      <img className="element-cover bg-fixed right-0 opacity-30" src="/assets/cover-2.png"></img>
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="products-title">Artisan <span className="collection">Collection</span></h2>
           <div id="products-card" className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -22,24 +23,26 @@ export default function Products() {
                 <img src={spinner} alt="loading"></img>
               </div>
             ) : (
-              data && data.products && data.products.map((product) => (
+              data.products.map((product) => (
                 <div key={product.id} className="group relative">
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                    <img
-                      src={product.imageURL} // Use imageURL from the product
-                      alt={`Image of ${product.name}`} // Use product name for alt text
-                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                    />
-                  </div>
-                  <div className="mt-4 flex justify-between">
-                    <div>
-                      <h3 className="text-sm text-gray-700">
-                        {product.name}
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+                  <Link to={`/product/${product.id}`} className="group">
+                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                      <img
+                        src={product.imageURL} // Use imageURL from the product
+                        alt={`Image of ${product.name}`} // Use product name for alt text
+                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                      />
                     </div>
-                    <p className="text-sm font-medium text-gray-900">${product.price}</p>
-                  </div>
+                    <div className="mt-4 flex justify-between">
+                      <div>
+                        <h3 className="text-sm text-gray-700">
+                          {product.name}
+                        </h3>
+                        <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+                      </div>
+                      <p className="text-sm font-medium text-gray-900">${product.price}</p>
+                    </div>
+                  </Link>
                 </div>
               ))
             )}

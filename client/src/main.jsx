@@ -11,8 +11,9 @@ import About from './pages/About.jsx';
 import Products from './pages/Products.jsx';
 import Profile from './pages/Profile.jsx';
 import SignUp from './pages/SignUp.jsx';
-import LogIn from './pages/LogIn.jsx'
-// import ProductsTest from "./pages/ProductsTest.jsx";
+import LogIn from './pages/LogIn.jsx';
+import ProductPage from './pages/ProductPage.jsx';
+import PublicProfile from "./pages/PublicProile.jsx";
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -35,6 +36,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -54,7 +56,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <Profile/>
+        element: <Profile/>,
+      },
+      {
+        path: '/profile/public/:id',
+        element: <PublicProfile/>
       },
       {
         path: '/signup',
@@ -63,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LogIn/>
+      },
+      {
+        path: '/product/:id',
+        element: <ProductPage/>
       }
     ]
   }
@@ -72,4 +82,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <ApolloProvider client={client}>
     <RouterProvider router={router}/>
   </ApolloProvider>
+  
 )

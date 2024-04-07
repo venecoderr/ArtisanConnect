@@ -1,0 +1,31 @@
+# Exported from Render on 2024-04-07T02:07:34Z
+services:
+  - type: pserv
+    name: mongodb
+    runtime: docker
+    repo: https://github.com/render-examples/mongodb
+    branch: master
+    plan: starter
+    region: oregon
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    disk:
+      name: data
+      mountPath: /data/db
+      sizeGB: 10
+    autoDeploy: false
+
+  - type: web
+    name: ArtisanConnect
+    runtime: node
+    repo: https://github.com/venecoderr/ArtisanConnect
+    branch: main
+    plan: starter
+    envVars:
+      - key: SEED_PASS
+        sync: false
+    region: oregon
+    buildCommand: npm install
+    startCommand: node server/server.js
+
+version: "1"

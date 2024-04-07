@@ -1,26 +1,39 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RequiredField from "./requiredField.jsx";
 import { useQueriesContext } from "../../../utils/QueriesContext.jsx";
+import auth from "../../../utils/auth.js";
+import Profile from "../../../pages/Profile.jsx";
 
-export default function ProductForm({ product = null }) {
+export default function ProductForm({ product }) {
     const { mutations, classNames } = useQueriesContext();
-
+    const user = auth.getProfile(); // Fetch user profile
     const [form, setForm] = useState({
         name: product ? product.name : '',
         description: product ? product.description : '',
         price: product ? product.price : '',
-        maker: product ? product.maker : '',
-        productPictureUrl: product ? product.productPictureUrl : '',
+        imageURL: product ? product.imageURL : '',
+        artisanId: user.id // Use user id as artisanId
     });
 
     const [showRequired, setShowRequired] = useState({
         name: false,
         description: false,
         price: false,
-        maker: false,
     });
     
     const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        if (product) {
+            setForm(prevForm => ({
+                ...prevForm,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                imageURL: product.imageURL,
+            }));
+        }
+    }, [product]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -46,9 +59,6 @@ export default function ProductForm({ product = null }) {
         } else if (!form.price) {
             setErrorMessage('Price is required');
             return;
-        } else if (!form.maker) {
-            setErrorMessage('Maker is required');
-            return;
         }
 
         try {
@@ -59,9 +69,8 @@ export default function ProductForm({ product = null }) {
                         id: product.id,
                         name: form.name,
                         description: form.description,
-                        price: form.price,
-                        maker: form.maker,
-                        productPictureUrl: form.productPictureUrl,
+                        price: parseFloat(form.price),
+                        imageURL: form.imageURL,
                     }
                 });
             } else {
@@ -70,9 +79,9 @@ export default function ProductForm({ product = null }) {
                     variables: {
                         name: form.name,
                         description: form.description,
-                        price: form.price,
-                        artisan: form.maker,
-                        productPictureUrl: form.productPictureUrl,
+                        price: parseFloat(form.price),
+                        artisanId: form.artisanId,
+                        imageURL: form.imageURL,
                     }
                 });
             }
@@ -82,20 +91,21 @@ export default function ProductForm({ product = null }) {
                 name: '',
                 description: '',
                 price: '',
-                maker: '',
-                productPictureUrl: '',
+                imageURL: '',
+                artisanId: user.id,
             });
             setShowRequired({
                 name: false,
                 description: false,
                 price: false,
-                maker: false,
             });
             setErrorMessage('');
 
         } catch (error) {
             console.error('Error occurred during form submission:', error);
             setErrorMessage('An error occurred while processing your request');
+        } finally {
+            window.location.reload()
         }
     };
 
@@ -155,20 +165,18 @@ export default function ProductForm({ product = null }) {
                         </section>
                     </section>
                     <section>
-                        <label htmlFor="maker" className="block text-sm font-semibold leading-6 text-gray-900">
-                            Maker
+                        <label htmlFor="imageURL" className="block text-sm font-semibold leading-6 text-gray-900">
+                            Image URL
                         </label>
                         <section className="mt-2.5">
                             <input
-                                value={form.maker}
+                                value={form.imageURL}
                                 type="text"
-                                name="maker"
-                                id="maker"
-                                onMouseLeave={() => setShowRequired({ ...showRequired, maker: !form.maker })}
+                                name="imageURL"
+                                id="imageURL"
                                 onChange={handleInputChange}
-                                className={classNames(showRequired.maker && !form.maker && 'border-2 border-red-700', "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6")}
+                                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-700 sm:text-sm sm:leading-6"
                             />
-                            {showRequired.maker && !form.maker && <RequiredField />}
                         </section>
                     </section>
                 

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import auth from "../../../utils/auth"
+import auth from "../../utils/auth"
 
 export default function LogOutBtn() {
 
@@ -11,7 +11,7 @@ export default function LogOutBtn() {
                         <button
                             type="submit"
                             className="block rounded p-3.5 justify-center text-sm text-grey-900 font-semibold shadow-sm"
-                        >LogOut</button>
+                            onClick={auth.logout}>LogOut</button>
                     </section> }
     </>
     )   
