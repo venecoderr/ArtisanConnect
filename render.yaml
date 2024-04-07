@@ -15,12 +15,12 @@ services:
       sizeGB: 10
     autoDeploy: false
   - type: web
-    name: your-app-name
+    name: artisan-connect
     env: node
     buildCommand: npm install && npm run build
     startCommand: node server.js
     github:
-      repo: your-github-username/your-repo-name
+      repo: venecoderr/ArtisanConnect
       branch: main
     plan: starter
     region: oregon
@@ -40,3 +40,4 @@ services:
       dockerContext: .
       dockerfilePath: ./Dockerfile
 version: "1"
+
