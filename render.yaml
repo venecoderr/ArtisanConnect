@@ -29,7 +29,6 @@ services:
           type: addon
     routes:
       - path: /
-        check: 200,404,500
     healthCheckPath: /health
 
 version: "1"
