@@ -8,6 +8,7 @@ services:
     plan: starter
     region: oregon
     autoDeploy: false
+
   - type: web
     name: artisan-connect
     env: node
@@ -16,6 +17,6 @@ services:
     plan: starter
     region: oregon
     envVars:
-      MONGODB_URI: ${service.mongodb.MONGODB_URI}
+      MONGODB_URI: "mongodb://placeholder-uri"
     healthCheckPath: /health
 version: "1"
