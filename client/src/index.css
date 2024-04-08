@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* for scroll animation */
+@keyframes fade{
+  from{
+    opacity: 0;
+  }to{
+    opacity: 1;
+  }
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.3;
+    transform: translate();
+  }
+  55%{
+    opacity: 1;
+  }
+  95%{
+    opacity: 0.3;
+  }
+  100%{
+    transform: translate();
+    opacity: 1;
+  }
+}
+
+.full-container{
+  animation: fade ease-in-out 3s;
+  animation-timeline: scroll();
+}
+
 #main{
   max-height: 100vh;
   max-width: 100vw;
@@ -17,6 +48,10 @@
   position: absolute;
   fill: url('/assets/cover-2.png');
   opacity: 0.3;
+}
+
+.main-cover{
+  opacity: 0.15;
 }
 
 .about-bg-cover{
@@ -114,6 +149,10 @@ button:hover{
   padding-bottom: 2%;
 }
 
+.products-bg{
+  opacity: 0.1;
+}
+
 .collection{
   color: rgb(18, 42, 18);
 }
@@ -122,12 +161,30 @@ button:hover{
   opacity: 0.8;
 }
 
+#products-card{
+  padding: 3%;
+}
+
 .products-card{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 60%;
   margin-left: 20%;
+}
+
+.products-card:hover{
+  opacity: 0.6;
+}
+
+#form-product{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-form{
+  padding: 1%;
 }
 
 .carousel{
@@ -209,6 +266,11 @@ button:hover{
     max-height: 100vh;
     min-height: 100vh;
     margin-left: 40%;
+    position: fixed;
+  }
+
+  .login-page{
+    max-height: 100vh;
   }
 
   button{

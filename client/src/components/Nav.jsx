@@ -7,6 +7,7 @@ import { AiOutlineMenu,
 import { Link } from "react-router-dom";
 import auth from '../utils/auth'
 
+
 export default function Nav(){
 
     const [nav, setNav ] = useState(false);

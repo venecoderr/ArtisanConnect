@@ -52,16 +52,19 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-      <p>${product.price}</p>
-      <img src={product.imageURL} alt={product.name} />
-      <p>Sold by: <Link to={`/profile/public/${product.artisan.id}`} className="group">{product.artisan.username}</Link></p>
+    <div className="h-screen">
+      <img className="products-bg element-cover bg-fixed right-0 z-[-1]" src="/assets/cover-2.png"></img>
+      <img className="cover-dashboard object-cover" src={product.imageURL} alt={product.name} />
+      <div className="dashboard-layout mx-auto max-w-2xl p-4 justify-center">
+        <h2 className="username">{product.name}</h2>
+        <p className="user-description">{product.description}</p>
+        <p className="user-description">${product.price}</p>  
+        <p className="user-description">Sold by: <Link to={`/profile/public/${product.artisan.id}`} className="group">{product.artisan.username}</Link></p>
+      </div>
       <Elements stripe={stripePromise}>
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit} id="form-product">
           <label htmlFor="quantity">QTY: </label>
-          <button type="button" onClick={handleDecrement}>-</button>
+          <button className="btn-form rounded" type="button" onClick={handleDecrement}>-</button>
           <input
             type="number"
             id="quantity"
@@ -70,8 +73,8 @@ export default function ProductPage() {
             onChange={(e) => setQuantity(parseInt(e.target.value))}
             min="1"
           />
-          <button type="button" onClick={handleIncrement}>+</button>
-          <button type="submit">Checkout</button>
+          <button className="btn-form rounded" type="button" onClick={handleIncrement}>+</button>
+          <button className="btn-form rounded" type="submit">Checkout</button>
         </form>
       </Elements>
     </div>
