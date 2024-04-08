@@ -1,7 +1,6 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../utils/queries';
-import ProductPage from "./ProductPage";
 import { Link } from 'react-router-dom'; // Import Link for navigation
 
 export default function Products() {
