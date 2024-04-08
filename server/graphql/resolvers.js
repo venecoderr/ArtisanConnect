@@ -45,10 +45,10 @@ const resolvers = {
       if (!isValidPassword) throw new Error('Invalid password');
       return {
         userId: user.id,
-        token: createToken(user, '1h'), // No need to pass secret here, handle it within createToken
+        token: createToken(user, '2h'), // No need to pass secret here, handle it within createToken
         tokenExpiration: 1
       };
-    },
+    }
     // Adds a new user
     addUser: async (_, { username, email, password }) => {
       const existingUser = await User.findOne({ email });
