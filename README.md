@@ -72,3 +72,10 @@ ArtisanConnect is a vibrant, community-driven marketplace designed to bridge the
 - [Angulo, Maria](https://github.com/maferadr)
 - [Freites, Jose](https://github.com/venecoderr)
 - [Pimentel, Pamela](https://github.com/pamcakesplease)
+
+## Deployment
+
+This application is deployed on Render.[Click here](https://artisanconnect-8fe5.onrender.com/) to view the live project.
+
+
+<img src="./client/src/assets/Screenshot 2024-04-08 185241.jpg" width="650" height="450" alt="artisanconnect.png">
