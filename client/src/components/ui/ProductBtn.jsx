@@ -10,12 +10,12 @@ export default function ProductBtn({ product }) {
 
   return (
     <div className="dropup-container">
-      <button className="dropup-btn" onClick={toggleDropdown}>
+      <button onClick={toggleDropdown}>
         {product ? 'Edit' : 'Add new product'}
       </button>
       {isOpen && (
-        <div className="dropup-content">
-            <Form className='grid grid-cols-1'formType='product' product={product}/>
+        <div className="dropup-content p-4">
+            <Form formType='product' product={product}/>
         </div>
       )}
     </div>

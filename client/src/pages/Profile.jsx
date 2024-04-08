@@ -2,7 +2,7 @@ import React from "react";
 import auth from '../utils/auth'
 import { GET_USER_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import ProfileProduct from "../components/ui/forms/profileProductCard";
+import ProfileProduct from "../components/ui/profileProductCard";
 import ProductBtn from '../components/ui/ProductBtn'
 import LogOutBtn from "../components/ui/logOutBtn";
 import LogIn from "./LogIn";
