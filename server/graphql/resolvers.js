@@ -48,7 +48,7 @@ const resolvers = {
         token: createToken(user, '2h'), // No need to pass secret here, handle it within createToken
         tokenExpiration: 1
       };
-    }
+    },
     // Adds a new user
     addUser: async (_, { username, email, password }) => {
       const existingUser = await User.findOne({ email });
