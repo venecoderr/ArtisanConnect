@@ -81,16 +81,3 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const ADD_TO_CART = gql`
-  mutation addToCart($productId: ID!, $quantity: Int!) {
-    addToCart(productId: $productId, quantity: $quantity) {
-      id
-      quantity
-      product {
-        id
-        name
-        price
-      }
-    }
-  }
-`
