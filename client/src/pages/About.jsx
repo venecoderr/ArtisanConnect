@@ -32,7 +32,7 @@ export default function About(){
     };
 
     return(
-        <div className="about-page h-screen">
+        <div className="about-page h-full">
         <img className="element-cover bg-fixed right-0 z-[-1]" src="/assets/cover-2.png"></img>
             <div className="carousel w-full h-80 m-auto relative">
                 <div style={{backgroundImage: `url(${slides[currentIndex].url})`}} className="w-full h-full bg-center bg-cover duration-500">

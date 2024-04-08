@@ -25,7 +25,8 @@ export default function Profile() {
 
   return (
       <div className="h-screen">
-        <div className="w-full h-100 bg-gradient-to-r from-stone-300/70 to-amber-100">
+      <img className="products-bg element-cover bg-fixed right-0 z-[-1]" src="/assets/cover-2.png"></img>
+        <div>
           <img className="cover-dashboard object-cover" src="/assets/dashboard-cover.jpg"></img>
           <div className="dashboard-layout mx-auto max-w-2xl p-4 justify-center">
             <p className="username">Hi, {user.username}</p>
