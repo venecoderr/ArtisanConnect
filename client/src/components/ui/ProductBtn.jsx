@@ -9,8 +9,8 @@ export default function ProductBtn({ product }) {
   };
 
   return (
-    <div className="dropup-container">
-      <button onClick={toggleDropdown}>
+    <div className="dropup-container submit">
+      <button className='block rounded p-3' onClick={toggleDropdown}>
         {product ? 'Edit' : 'Add new product'}
       </button>
       {isOpen && (
