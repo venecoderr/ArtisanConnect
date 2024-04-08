@@ -1,7 +1,7 @@
 const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
 
-const secret = 'mysecretssshhhhhhh';
+const secret = process.env.JWT_SECRET || 'fallbackSecret';
 const expiration = '2h';
 
 module.exports = {
@@ -26,8 +26,8 @@ module.exports = {
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
-    } catch (error) {
-      console.log('Invalid token:', error.message);
+    } catch {
+      console.log('Invalid token');
     }    
 
     return req;

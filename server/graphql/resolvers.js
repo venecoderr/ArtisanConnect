@@ -4,8 +4,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 // Helper function to create a JWT token
-const createToken = (user, secret, expiresIn) => {
+// Helper function to create a JWT token
+const createToken = (user, expiresIn) => {
   const { id, email, username } = user;
+  const secret = process.env.JWT_SECRET || 'fallbackSecret'; // Use the same fallback method
   return jwt.sign({ id, email, username }, secret, { expiresIn });
 };
 
@@ -43,7 +45,7 @@ const resolvers = {
       if (!isValidPassword) throw new Error('Invalid password');
       return {
         userId: user.id,
-        token: createToken(user, process.env.JWT_SECRET, '2h'),
+        token: createToken(user, '2h'), // No need to pass secret here, handle it within createToken
         tokenExpiration: 1
       };
     },

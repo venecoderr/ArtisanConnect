@@ -5,8 +5,9 @@ import Nav from "./components/Nav";
 
 export default function App(){
   return(
-    <div className="w-full h-100 bg-gradient-to-r from-amber-100 to-stone-300/70">
-
+    <div 
+    className="main-div w-full h-100 bg-gradient-to-r from-amber-100 to-stone-300/70"
+    >
         <QueriesProvider>
           <Nav/>
 

@@ -13,10 +13,10 @@ export default function DeleteBtn({ productId }) {
     }
 
     return (
-        <div className="dropup-container">
-            <button key={productId} onClick={handleDeleteClick} className="dropup-btn">
+        <section className="mt-10 sm:col-span-2 dropup-container">
+             <button className='rounded block' onClick={handleDeleteClick}>
                 Delete
             </button>
-        </div>
+        </section>
     );
 }
