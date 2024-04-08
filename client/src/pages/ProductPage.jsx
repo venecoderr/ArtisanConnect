@@ -1,82 +1,43 @@
-import React, { useState } from "react";
-import { useQuery, useMutation } from '@apollo/client';
-import { GET_PRODUCT } from '../utils/queries';
-import { ADD_TO_CART } from "../utils/mutations";
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
-
-export default function ProductPage() {
-  const { id } = useParams();
-  const { loading, error, data } = useQuery(GET_PRODUCT, { variables: { id: id } });
-  const [quantity, setQuantity] = useState(1);
-  const [addToCart] = useMutation(ADD_TO_CART);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
-  const product = data.product;
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    if (quantity > 0) {
-      try {
-        await addToCart({ variables: { productId: product.id, quantity: quantity } });
-        const stripe = await stripePromise;
-        const response = await stripe.redirectToCheckout({
-          lineItems: [{ price: product.priceId, quantity: quantity }],
-          mode: 'payment',
-          successUrl: `${window.location.origin}/profile`,
-          cancelUrl: `${window.location.origin}/profile`,
-        });
-        if (response.error) {
-          console.error(response.error.message);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  };
-
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  return (
-    <div className="h-screen">
-      <img className="products-bg element-cover bg-fixed right-0 z-[-1]" src="/assets/cover-2.png"></img>
-      <img className="cover-dashboard object-cover" src={product.imageURL} alt={product.name} />
-      <div className="dashboard-layout mx-auto max-w-2xl p-4 justify-center">
-        <h2 className="username">{product.name}</h2>
-        <p className="user-description">{product.description}</p>
-        <p className="user-description">${product.price}</p>  
-        <p className="user-description">Sold by: <Link to={`/profile/public/${product.artisan.id}`} className="group">{product.artisan.username}</Link></p>
+import React from "react";
+import { useQuery } from '@apollo/client';
+import { GET_PRODUCTS } from '../utils/queries';
+export default function Products() {
+  const { loading, data } = useQuery(GET_PRODUCTS);
+  return(
+    <>
+      {/* Products container */}
+      <img className="element-cover right-0" src="/assets/cover-2.png" alt="Cover" />
+      <div className="w-full h-screen bg-gradient-to-r from-stone-300/70 to-amber-100">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
+          <h2 className="products-title">Artisan <span className="collection">Collection</span></h2>
+          <div id="products-card" className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            {loading ? (
+              <div>Loading...</div>
+            ) : (
+              data && data.products && data.products.map((product) => (
+                <div key={product.id} className="group relative">
+                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img
+                      src={product.imageURL} // Use imageURL from the product
+                      alt={`Image of ${product.name}`} // Use product name for alt text
+                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                    />
+                  </div>
+                  <div className="mt-4 flex justify-between">
+                    <div>
+                      <h3 className="text-sm text-gray-700">
+                        {product.name}
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-500">{product.description}</p>
+                    </div>
+                    <p className="text-sm font-medium text-gray-900">${product.price}</p>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
       </div>
-      <Elements stripe={stripePromise}>
-        <form onSubmit={handleFormSubmit} id="form-product">
-          <label htmlFor="quantity">QTY: </label>
-          <button className="btn-form rounded" type="button" onClick={handleDecrement}>-</button>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value))}
-            min="1"
-          />
-          <button className="btn-form rounded" type="button" onClick={handleIncrement}>+</button>
-          <button className="btn-form rounded" type="submit">Checkout</button>
-        </form>
-      </Elements>
-    </div>
+    </>
   );
 }
