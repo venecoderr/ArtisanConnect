@@ -43,7 +43,7 @@ const resolvers = {
       if (!isValidPassword) throw new Error('Invalid password');
       return {
         userId: user.id,
-        token: createToken(user, process.env.JWT_SECRET, '2h'),
+        token: createToken(user, process.env.JWT_SECRET, '1h'),
         tokenExpiration: 1
       };
     },
