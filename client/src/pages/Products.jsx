@@ -15,7 +15,7 @@ export default function Products() {
   return(
     <>
       {/* Products container */}
-      <div className="h-screen">
+      <div className="h-100">
       <img className="products-bg element-cover bg-fixed right-0 z-[-1]" src="/assets/cover-2.png"></img>
         <div className="full-container mx-auto max-w-2xl px-4 py-16 sm:px-4 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="products-title">Artisan <span className="collection">Collection</span></h2>
