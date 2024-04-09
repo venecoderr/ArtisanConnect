@@ -183,7 +183,7 @@ export default function ProductForm({ product }) {
                     <section className="mt-10 sm:col-span-2">
                         <button
                             type="submit"
-                            className="block p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
+                            className="block rounded p-3.5 text-center text-sm text-grey-900 font-semibold shadow-sm"
                         >{product ? 'Update Product' : 'Add Product'}</button>
                     </section>
                 </section>
