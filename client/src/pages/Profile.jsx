@@ -24,7 +24,7 @@ export default function Profile() {
   const userProducts = data.userProducts;
 
   return (
-      <div className="h-screen">
+      <div className="bg-profile">
       <img className="products-bg element-cover bg-fixed right-0 z-[-1]" src="/assets/cover-2.png"></img>
         <div>
           <img className="cover-dashboard object-cover" src="/assets/dashboard-cover.jpg"></img>

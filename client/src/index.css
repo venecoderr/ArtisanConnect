@@ -27,6 +27,10 @@
     opacity: 1;
   }
 }
+.bg-profile{
+  min-height: 100vh;
+  height: 100vh;
+}
 
 .full-container{
   animation: fade ease-in-out 3s;
