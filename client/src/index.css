@@ -318,11 +318,19 @@ button:hover{
   }
 }
 
+@media (min-width: 1024px){
+  .img-container{
+    margin-right: 48%;
+  }
+}
+
 /* DROPOUT CSS */
 
 .dropup-container {
   position: relative;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dropup-btn {
@@ -352,4 +360,13 @@ button:hover{
 
 .dropup-content a:hover {
   background-color: #f1f1f1;
+}
+
+.profile-bg{
+  min-height: 100vh;
+}
+
+.redBtn:hover{
+  background-color: rgb(148, 43, 43);
+  border: 1px solid rgb(148, 43, 43);
 }
